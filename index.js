@@ -7,6 +7,8 @@ var express = require("express"),
     session = require("express-session"),
     fs = require("fs");
 
+const pug = require("pug");
+
 var dbUsername = process.env.MONGONAME;
 var dbPassword = process.env.MONGOPASS;
 var sessionPass = process.env.SESSIONPASS;
@@ -19,8 +21,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
 app.use(express.static(__dirname + "/public"));
+app.set('view engine', 'pug');
 
 var uri = "mongodb://" + dbUsername + ":" + dbPassword + "@ds013366.mlab.com:13366/youcapital";
 var db = mongojs(uri, ["users"]);
@@ -30,5 +32,11 @@ app.listen(process.env.PORT || 3000, function() {
 });
 
 app.get("/", function(req, res) {
-  console.log("Youcapital online!");
+ 
+  var name = "Jesse";
+  
+  res.render("template.pug", {
+    name: name
+  });
+
 });

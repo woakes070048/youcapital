@@ -28,6 +28,7 @@
     "express-session": "*",
     "fs": "0.0.2",
     "mongodb": "*",
-    "mongojs": "*"
+    "mongojs": "*",
+    "pug": "^0.1.0"
   }
 }
