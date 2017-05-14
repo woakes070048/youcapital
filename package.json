@@ -1,0 +1,32 @@
+{
+  "name": "youcapital",
+  "version": "0.0.1",
+  "description": " A business and hiring network optimized for you, yourself, and you. Don't be seen, be understood. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"no tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeshaitan/youcapital.git"
+  },
+  "keywords": [
+    "hiring",
+    "jobs",
+    "social-network"
+  ],
+  "author": "Jesse Smith",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jeshaitan/youcapital/issues"
+  },
+  "homepage": "https://github.com/jeshaitan/youcapital#readme",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "express-session": "*",
+    "fs": "0.0.2",
+    "mongodb": "*",
+    "mongojs": "*"
+  }
+}
