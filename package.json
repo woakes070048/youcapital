@@ -23,6 +23,7 @@
   "homepage": "https://github.com/jeshaitan/youcapital#readme",
   "dependencies": {
     "body-parser": "*",
+    "dotenv": "^4.0.0",
     "express": "*",
     "express-session": "*",
     "fs": "0.0.2",
