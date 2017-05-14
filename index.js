@@ -35,8 +35,17 @@ app.get("/", function(req, res) {
  
   var name = "Jesse";
   
-  res.render("template.pug", {
+  res.render("landing.pug", {
+    subtitle: "Hiring with intent!",
     name: name
+  });
+
+});
+
+app.get("/register", function(req, res) {
+   
+  res.render("register.pug", {
+    subtitle: "Register"  
   });
 
 });
