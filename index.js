@@ -31,21 +31,28 @@ app.listen(process.env.PORT || 3000, function() {
   console.log("youcapital listening on port 3000.");
 });
 
-app.get("/", function(req, res) {
- 
-  var name = "Jesse";
-  
+app.get("/", function(req, res) {  
+  var sess = req.session;
   res.render("landing.pug", {
     subtitle: "Hiring with intent!",
-    name: name
+    name: sess.name
   });
-
 });
 
 app.get("/register", function(req, res) {
-   
   res.render("register.pug", {
     subtitle: "Register"  
   });
+});
 
+app.post("/register", function(req, res) {
+  var sess = req.session;
+  db.users.insert(req.body, function(err, doc) {
+    if(err)
+      console.log("Error inserting new user: " + err);
+    else {
+      sess.name = req.body.firstname + " " + req.body.lastname;
+      res.redirect("/");
+    }
+  });
 });

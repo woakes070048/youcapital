@@ -1,5 +1,8 @@
 extends template.pug
 
 block contents
-  h3 Welcome to YouCapital, #{name}!
+  if name
+    h3 Welcome to YouCapital, #{name}!
+  else 
+    h3 Welcome to YouCapital!
   a(href="/register") Register
