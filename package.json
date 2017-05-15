@@ -29,6 +29,7 @@
     "fs": "0.0.2",
     "mongodb": "*",
     "mongojs": "*",
+    "password-hash": "^1.2.2",
     "pug": "*"
   }
 }

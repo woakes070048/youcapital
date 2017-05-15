@@ -5,7 +5,8 @@ var express = require("express"),
     mongodb = require("mongodb"),
     mongojs = require("mongojs"),
     session = require("express-session"),
-    fs = require("fs");
+    fs = require("fs"),
+    hash = require("password-hash");
 
 const pug = require("pug");
 
@@ -47,11 +48,13 @@ app.get("/register", function(req, res) {
 
 app.post("/register", function(req, res) {
   var sess = req.session;
-  db.users.insert(req.body, function(err, doc) {
+  var userObj = req.body;
+  userObj.password = hash.generate(req.body.password)
+  db.users.insert(userObj, function(err, doc) {
     if(err)
       console.log("Error inserting new user: " + err);
     else {
-      sess.name = req.body.firstname + " " + req.body.lastname;
+      sess.name = userObj.firstname + " " + userObj.lastname;
       res.redirect("/");
     }
   });
